@@ -1,0 +1,277 @@
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================= */
+:root {
+  --bg: #0e1116;          /* Fondo oscuro general */
+  --fg: #f3f4f6;          /* Color de texto principal */
+  --muted: #c7cad1;       /* Color de texto secundario (gris) */
+  --border: #2a2f3a;      /* Color de bordes */
+  --card: #141a24;        /* Color de fondo de las tarjetas */
+  --accent: #6C8EFF;      /* Color azul principal (botones, enlaces) */
+  --accent-weak: #1c2a45; /* Azul oscuro para efectos hover */
+  --focus: #ffd166;       /* Color amarillo para el foco (accesibilidad) */
+  --shadow: 0 4px 6px rgba(0,0,0,.3); /* Sombra suave */
+  --radius-m: .75rem;     /* Bordes redondeados medianos */
+  --radius-s: .5rem;      /* Bordes redondeados pequeños */
+  --container: 85rem;     /* Ancho máximo del contenido (~1360px) */
+}
+
+/* Reset básico para que todos los navegadores calculen igual el tamaño */
+* { 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* =========================================
+   2. ESTRUCTURA GENERAL (Layout)
+   ========================================= */
+.site-header, 
+.main-content, 
+.site-footer {
+  max-width: var(--container);
+  width: 100%; 
+  margin-inline: auto; 
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Header (Encabezado) */
+.site-header { 
+  border-bottom: 1px solid var(--border); 
+  margin-bottom: 1.5rem; 
+  padding-top: 1rem;
+  padding-bottom: 0.5rem; 
+}
+
+.site-title { 
+  color: #fff; 
+  margin: 0; 
+  font-size: 1.8rem; 
+}
+
+/* Navegación (Menú) */
+.main-nav .nav-list {
+  list-style: none; 
+  padding: 0; 
+  display: flex; 
+  gap: 1rem; 
+  margin-top: 0.5rem; 
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: var(--accent); 
+  text-decoration: none; 
+  font-weight: 600; 
+  padding: 0.5rem;
+}
+
+.main-nav a:hover { 
+  background: var(--accent-weak); 
+  border-radius: var(--radius-s); 
+}
+
+.main-nav a[aria-current="page"] { 
+  border-bottom: 2px solid var(--accent); 
+}
+
+/* Contenido Principal */
+.main-content {
+  padding-top: 0;
+  flex: 1; 
+}
+
+.section-title {
+  margin-top: 0.5rem; 
+}
+
+/* Footer (Pie de página) */
+.site-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 1.5rem;  
+  padding-top: 1rem; 
+  padding-bottom: 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; background: #fff; color: #000; padding: 1rem; z-index: 1000;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }
+
+
+/* =========================================
+   3. PÁGINA: CATÁLOGO (GRID)
+   ========================================= */
+.product-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 0.5rem; 
+}
+
+/* Tarjeta de producto */
+.product-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+}
+
+/* Contenedor de la imagen */
+.product-media {
+  margin: 0 auto 1rem;
+  background-color: #ffffff; 
+  border-radius: 1rem;
+  width: 100%;
+  height: 250px; 
+  display: flex;
+  align-items: center;     
+  justify-content: center; 
+  overflow: hidden; 
+  padding: 1rem;
+}
+
+.product-image {
+  width: auto; 
+  height: auto;
+  max-width: 100%; 
+  max-height: 100%;
+  object-fit: contain; 
+  display: block;
+}
+
+/* Textos del producto */
+.product-name { font-size: 1.25rem; margin: 0.5rem 0; }
+.product-name a { color: var(--accent); text-decoration: none; }
+.product-price { font-weight: bold; font-size: 1.1rem; color: #fff; margin-top: 0.5rem; }
+.product-desc { color: var(--muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 1rem; }
+
+/* Selector de Cantidad */
+.product-qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+.product-qty label { font-weight: 600; color: var(--fg); font-size: 0.9rem; }
+.product-qty input {
+  width: 60px; padding: 5px; border-radius: 5px;
+  border: 1px solid var(--border); background: var(--bg); color: #fff;
+  text-align: center; font-weight: bold;
+}
+
+/* Botón azul */
+.btn {
+  display: block; width: 100%; padding: 0.8rem;
+  background: var(--accent); color: #000;
+  font-weight: bold; text-decoration: none;
+  border-radius: 0.5rem; text-align: center; border: none; cursor: pointer; font-size: 1rem;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+
+/* =========================================
+   4. PÁGINA: FORMULARIO
+   ========================================= */
+.container {
+  max-width: 40rem; 
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+}
+
+/* Tarjeta del formulario */
+.container > form {
+  background: var(--card);
+  padding: 1.2rem 2rem; 
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Título del formulario */
+.container > form h1 {
+  margin-top: 0;      
+  margin-bottom: 0.5rem;
+  text-align: center;  
+}
+
+/* Estilos de los inputs */
+.form-label { font-weight: 600; margin-bottom: 0.25rem; display: block; }
+
+.form-control {
+  width: 100%; padding: 0.75rem; background: var(--bg);
+  border: 1px solid var(--border); border-radius: var(--radius-s);
+  color: var(--fg); font-size: 1rem;
+}
+.form-control:focus { outline: 2px solid var(--accent); border-color: transparent; }
+
+/* Botones del formulario */
+.container > form .btn-cat,
+.container > form .btn-conf {
+  text-align: center; padding: 0.75rem; border-radius: var(--radius-s);
+  text-decoration: none; font-weight: bold; margin-top: 0.5rem; display: block;
+}
+.btn-conf { background: var(--accent); color: #000; }
+.btn-cat { background: transparent; border: 1px solid var(--accent); color: var(--accent); }
+.btn-cat:hover { background: var(--accent-weak); }
+
+
+/* =========================================
+   5. PÁGINA: CONFIRMACIÓN
+   ========================================= */
+.confirm-container {
+  min-height: 50vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.5rem;
+}
+
+.confirm-card {
+  background: var(--card);
+  padding: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  text-align: center;
+  max-width: 30rem;
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+
+.status { margin-top: 1.5rem; font-weight: bold; font-size: 1.2rem; }
+.status.ok { color: #4ade80; }
+
+/* Utilidad para ocultar elementos visualmente (pero leerlos con voz) */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}

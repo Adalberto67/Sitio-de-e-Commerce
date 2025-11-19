@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Confirmar compra • Aguas Carlos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/estilos.css">
+  <script src="./js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <h1 class="site-title">Aguas Carlos</h1>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="formulario.html">Compra</a></li>
+        <li><a href="confirmacion.html" aria-current="page">Confirmación</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content" id="contenido">
+    <div class="confirm-container">
+      <div class="confirm-card">
+        <h2 class="section-title">Confirmar compra</h2>
+
+        <!-- Aviso que se leerá automáticamente -->
+        <p id="aviso" role="alert" aria-atomic="true">
+          Una vez confirmado el pedido <strong>no se aceptan cambios ni devoluciones</strong>.
+        </p>
+
+        <!-- Botón asociado al aviso -->
+        <button id="btnConfirmar" class="btn" aria-describedby="aviso">
+          Confirmar pedido
+        </button>
+        
+        <!-- Estado que anuncia el cambio -->
+        <p id="estado" class="status" aria-live="polite" aria-atomic="true">
+          Pendiente
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Aguas Carlos "Compren o los mato"</p>
+  </footer>
+
+  <script>
+    // Forzar que el aviso se lea al cargar
+    window.addEventListener('DOMContentLoaded', () => {
+      const aviso = document.getElementById('aviso');
+      if (aviso) {
+        const texto = aviso.innerHTML;
+        aviso.innerHTML = texto + '';  // reescribe para disparar el role="alert"
+      }
+    });
+    
+    // Confirmación
+    const btn = document.getElementById('btnConfirmar');
+    const estado = document.getElementById('estado');
+
+    btn.addEventListener('click', () => {
+      estado.textContent = '✅ Pedido confirmado';
+      estado.classList.add('ok');
+      btn.textContent = 'Confirmado';
+      btn.disabled = true;
+      btn.setAttribute('aria-disabled', 'true');
+    });
+  </script>
+</body>
+</html>

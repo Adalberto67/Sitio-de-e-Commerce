@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/estilos.css">
+    <script src="./js/main.js" defer></script>
+    <title>Formulario de compra</title>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <h1 class="site-title">Aguas Carlos</h1>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="index.html">Catálogo</a></li>
+        <li><a href="formulario.html" aria-current="page">Compra</a></li>
+        <li><a href="confirmacion.html">Confirmación</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content" id="contenido">
+    <div class="container">
+      <form action="">
+        <h1>Formulario de compra</h1>
+
+        <label for="d1" class="form-label">Dirección</label>
+        <input type="text" name="direccion" id="d1" class="form-control" aria-describedby="d1-desc">
+        <small id="d1-desc" class="visually-hidden">Escribe tu dirección completa: calle, número y colonia.</small>
+
+        <label for="d2" class="form-label">Calle</label>
+        <input type="text" name="calle" id="d2" class="form-control" aria-describedby="d2-desc">
+        <small id="d2-desc" class="visually-hidden">Escribe solo el nombre de la calle, sin número.</small>
+
+        <label for="d3" class="form-label">Código Postal</label>
+        <input type="text" name="cp" id="d3" class="form-control" aria-describedby="d3-desc">
+        <small id="d3-desc" class="visually-hidden">Ingresa los 5 dígitos de tu código postal.</small>
+
+        <label for="t1" class="form-label">Número de tarjeta</label>
+        <input type="text" name="num-tarjeta" id="t1" class="form-control" aria-describedby="t1-desc">
+        <small id="t1-desc" class="visually-hidden">Introduce el número de tu tarjeta, sin espacios.</small>
+
+        <label for="t2" class="form-label">Caducidad</label>
+        <input type="text" name="cad-tarjeta" id="t2" class="form-control" aria-describedby="t2-desc">
+        <small id="t2-desc" class="visually-hidden">Escribe la fecha de caducidad de tu tarjeta en mes y año.</small>
+
+        <label for="t3" class="form-label">CVV</label>
+        <input type="text" name="cvv" id="t3" class="form-control" aria-describedby="t3-desc">
+        <small id="t3-desc" class="visually-hidden">Código de 3 o 4 dígitos al reverso de la tarjeta.</small>
+
+        <a class="btn-cat" href="./index.html">Volver al catálogo</a>
+        <a class="btn-conf" href="./confirmacion.html">Confirmar</a>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Aguas Carlos "Compren o los mato"</p>
+  </footer>
+</body>
+</html>

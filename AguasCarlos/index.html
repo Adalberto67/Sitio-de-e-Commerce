@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Catálogo Aguas Carlos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="styles/estilos.css">
+  <script src="./js/main.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <h1 class="site-title" id="contenido">Aguas Carlos</h1>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="index.html" aria-current="page">Catálogo</a></li>
+        <li><a href="formulario.html">Compra</a></li>
+        <li><a href="confirmacion.html">Confirmación</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h2 class="section-title">Catálogo de productos</h2>
+
+    <section class="product-section" aria-labelledby="destacados">
+      <h3 class="section-subtitle" id="destacados">Productos destacados</h3>
+
+      <ul class="product-grid">
+        
+        <li class="product-item">
+          <article class="product-card">
+            <h4 class="product-name">
+              <a href="producto-botella-1l-simple.html">Botella de 1 L (simple)</a>
+            </h4>
+            <figure class="product-media">
+              <img src="Assets/botella_de_1_litro_simple.jpg"
+                   alt="Botella transparente de 1 litro con tapa blanca"
+                   class="product-image">
+            </figure>
+            <div class="product-price">Precio: $15.00 MXN</div>
+            <p class="product-desc">Botella práctica para uso diario.</p>
+            
+            <div class="product-qty">
+              <label for="qty-simple">Cant:</label>
+              <input type="number" id="qty-simple" value="1" min="1" max="50">
+            </div>
+
+            <a href="formulario.html" class="btn" aria-label="Comprar botella simple">Comprar</a>
+          </article>
+        </li>
+
+        <li class="product-item">
+          <article class="product-card">
+            <h4 class="product-name">
+              <a href="producto-botella-1l-rellenable.html">Botella de 1 L (rellenable)</a>
+            </h4>
+            <figure class="product-media">
+              <img src="Assets/botella_de_1_litro_marca_rellenable.jpg"
+                   alt="Botella de 1 litro rellenable"
+                   class="product-image">
+            </figure>
+            <div class="product-price">Precio: $18.00 MXN</div>
+            <p class="product-desc">Botella diseñada para rellenarse varias veces.</p>
+            
+            <div class="product-qty">
+              <label for="qty-rellenable">Cant:</label>
+              <input type="number" id="qty-rellenable" value="1" min="1" max="50">
+            </div>
+
+            <a href="formulario.html" class="btn" aria-label="Comprar botella rellenable">Comprar</a>
+          </article>
+        </li>
+
+        <li class="product-item">
+          <article class="product-card">
+            <h4 class="product-name">
+              <a href="producto-botella-1l-premium.html">Botella de 1 L (premium)</a>
+            </h4>
+            <figure class="product-media">
+              <img src="Assets/botella_de_1_litro_lujo.jpg"
+                   alt="Botella premium de 1 litro"
+                   class="product-image">
+            </figure>
+            <div class="product-price">Precio: $29.00 MXN</div>
+            <p class="product-desc">Botella premium con materiales de alta calidad.</p>
+            
+            <div class="product-qty">
+              <label for="qty-premium">Cant:</label>
+              <input type="number" id="qty-premium" value="1" min="1" max="50">
+            </div>
+
+            <a href="formulario.html" class="btn" aria-label="Comprar botella premium">Comprar</a>
+          </article>
+        </li>
+
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Aguas Carlos "Compren o los mato"</p>
+  </footer>
+</body>
+</html>
